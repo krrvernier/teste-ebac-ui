@@ -12,12 +12,8 @@ describe('Funcionalidade:cadastro', () => {
 });
 
 //Usando faker-js
-///reference types-"cypress/>"
 import { faker} from '@faker-js/faker'
 describe('Funcionalidade:cadastro com faker', () => {
-    beforeEach(() => {
-         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
-    });
     it('Deve completar cadastro com sucesso', () => {
         cy.get('#reg_email').type(faker.internet.email())
         cy.get('#reg_password').type('senha@1234')
@@ -28,13 +24,8 @@ describe('Funcionalidade:cadastro com faker', () => {
 });
 
 //Com variáveis
-///reference types-"cypress/>"
 describe('Funcionalidade: cadastro usando variáveis', () => {
-    beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
-    });
-
-    it.only('Deve completar cadastro com sucesos - usando variáveis', () => {
+    it('Deve completar cadastro com sucesos - usando variáveis', () => {
         var nome = faker.person.firstName()
         var sobrenome = faker.person.lastName()
         var email = faker.internet.email(nome)
